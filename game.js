@@ -3,6 +3,7 @@ let turn = "X";
 function changeturn() {
   return turn === "X" ? "0" : "X";
 }
+//win logic
 let gameover = false;
 function wins() {
   let text = document.getElementsByClassName("text");
@@ -34,21 +35,27 @@ function wins() {
     }
   });
 }
-
+let count = 0;
+// Click Logic
 Array.from(box).forEach((element) => {
   let text = element.querySelector(".text");
   let p = document.getElementById("p");
   element.addEventListener("click", () => {
     if (text.innerHTML === "") {
       text.innerHTML = turn;
+      count++;
       wins();
       if (gameover === false) {
         turn = changeturn();
         p.innerHTML = "Turn For " + turn;
       }
+      if (count === 9 && gameover === false) {
+        p.innerHTML = "Nobody Wins";
+      }
     }
   });
 });
+// Reset button logic
 let reset = document.getElementById("reset");
 reset.addEventListener("click", () => {
   let p = document.getElementById("p");
@@ -59,5 +66,6 @@ reset.addEventListener("click", () => {
     turn = "X";
     p.innerHTML = "Turn For X";
     gameover = false;
+    count = 0;
   });
 });
