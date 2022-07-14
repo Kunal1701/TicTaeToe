@@ -2,16 +2,11 @@
   padding: 0px;
   margin: 0px;
 }
-body{
-  /* height: 100vh; */
-}
-header {
+h1 {
   background-color: brown;
-  font-size: 40px;
-}
-header h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 40px;
+  width: 100vw;
 }
 .container {
   display: flex;
@@ -19,28 +14,31 @@ header h1 {
   padding: 40px;
   background-color: antiquewhite;
   height: 100vh;
-  width: 100vw;
-  flex-wrap: wrap;
+  width: 96vw;
+  flex-wrap:wrap-reverse;
+  padding-right: 20px;
 }
 .game {
   display: grid;
   grid-template-columns: repeat(3, 10vw);
   grid-template-rows: repeat(3, 10vw);
   margin-right: 160px;
+  position: relative;
+  right: 130px;
 }
 .box {
   border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* font-size: 40px; */
+  font-size: 40px;
 }
 .box:hover {
   cursor: pointer;
   background-color: pink;
 }
 span {
-  font-size: xx-large;
+  font-size: 8rem;
 }
 .br {
   border-right: 0px;
@@ -59,7 +57,7 @@ span {
   margin-bottom: 10px;
 }
 .info p {
-  font-size: 42px;
+  font-size: 40px;
   margin-bottom: 12px;
 }
 #reset {
@@ -77,10 +75,30 @@ span {
   border: 1px solid black;
   display: none;
 }
-footer{
-  position: relative;
-  top: 500px;
-  left: 540px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: bolder;
+@media only screen and (max-device-width: 1095px) {
+  .container{
+    width: 300px;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+  }
+  .game {
+    grid-template-columns: repeat(3, 25vw);
+    grid-template-rows: repeat(3, 25vw);
+    margin: auto auto;
+    right: 10px;
+  }
+  span {
+    font-size: 4rem;
+  }
+  .info h3{
+    font-size: 50px;
+  }
+  #p{
+    font-size: 30px;
+  }
+  .info{
+    margin: auto auto;
+  }
 }
